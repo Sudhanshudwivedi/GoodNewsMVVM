@@ -23,13 +23,13 @@ class ArticleViewController: UIViewController {
         getData()
     }
     
-    
+    //MARK:SetupUI
     func setupUI(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.tableView.register(UINib(nibName: "Main", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
-        
+        self.navigationController?.navigationBar.barTintColor = .darkGray
     }
 
+    //MARK:GetData
     func getData(){
 
         let url = Constants().url
@@ -51,7 +51,6 @@ extension ArticleViewController : UITableViewDelegate,UITableViewDataSource{
         let articleVM = self.articlesListVM.articleAtIndex(index: indexPath.row)
         cell.descriptionLabel.text = articleVM.title
         cell.titleLabel.text = articleVM.title
-        
         return cell
     }
     
